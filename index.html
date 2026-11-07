@@ -14,6 +14,45 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <style>
+    details.moreinfo > summary {
+      cursor: pointer;
+      display: inline-block;
+      list-style: none;
+      color: inherit;
+      margin-bottom: 10px;
+      text-decoration: underline;
+    }
+    details.moreinfo > summary::-webkit-details-marker { display: none; }
+    details.moreinfo > summary:hover { text-decoration: underline; }
+    details.moreinfo > summary::before { content: "\25B8\00a0"; }
+    details.moreinfo[open] > summary::before { content: "\25BE\00a0"; }
+
+    /* Lab student cards -- see the <lab-student> element defined at the bottom of this file */
+    .student-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    lab-student {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      width: calc(33.33% - 14px);
+      min-width: 200px;
+    }
+    lab-student .student-pic {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    lab-student .student-info {
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
 
@@ -24,8 +63,8 @@
 		<ul class="nav navbar-nav">
               <li><a href="#">Home</a></li>
               <li><a href="#talks">Talks and News</a></li> 
-              <li><a href="#papers">Papers</a></li>
               <li><a href="#lab">Lab</a></li>
+              <li><a href="#papers">Papers</a></li>
               <li><a href="#joininglab">Joining the Lab</a></li>
               <li><a href="#teaching">Teaching</a></li> 
               <li><a href="#otherthings">Other Things</a></li> 
@@ -53,13 +92,13 @@
                     <p>
                     I am an assistant professor of Linguistics (and by courtesy Computer Science) at the University of British Columbia. Before that, I was a <a href=https://kempnerinstitute.harvard.edu/>Kempner Fellow</a> at Harvard, and before that I did my PhD in Computer Science at the Stanford NLP group, advised by Dan Jurafsky. </p>
                    <p>
-                   <a href=#joininglab><b>I am looking to recruit students</b></a>. If you are applying for a PhD in NLP or computational linguistics, apply to UBC linguistics or CS and mention that you'd like to work with me!
+                   <a href=#joininglab><b>I am looking to recruit one or two students for the 2027 academic year</b></a>. If you are applying for a PhD or masters, apply to UBC linguistics or CS and mention that you'd like to work with me.
                    </p>
                    <p> 
                    I work on understanding and defining the capabilities of large language models in relation to the human language system. 
                    </p>
                    <p>
-                   I am especially interested in pursuing an interdisciplinary research program, combining computational empirical machine learning methods with theories of human language. My principal interests include:  how language models learn and use <b>generalizable grammatical abstractions</b>, the <b>interaction between structure and meaning</b> representations in high-dimensional vector spaces, and using <b>multilingual settings</b> to test the limits of abstraction in language models.
+                   I am especially interested in pursuing an interdisciplinary research program, combining computational empirical machine learning methods with theories of human cognition and language. Some questions I am interested in right now: how do language models represent abstract systems like syntax in a continuous space, and how do they get there through training? How do the very continuous parts of language, like subtle variations in meaning, interact with these generalized abstractions? Why do representations that mirror complex human cognitive processes arise with certain types of training?
                    </p>
 
                     <!--- <p>I am funded by an <a href=https://www.nsfgrfp.org/>NSF GRFP fellowship</a>, and a <a href=https://vpge.stanford.edu/fellowships-funding/sgf/details>Stanford Graduate Fellowship. </a></p> --->
@@ -71,8 +110,9 @@
             <div class="col">    
                 <h2 id="talks" style="margin-top: 10px;">Talks and News</h2>
             <div class="col" ,="" style="max-height: 200px;overflow: scroll;border-color: black;border-style: solid;border-width: 1px;border-left: 0;border-right: 0;padding: 1em;/*! padding-top: 0; */">    
-<p style="color:#8e8e8e">October 2026: I'm planning on attending COLM 2026 in San Francisco</p> 
-<p><b>^Future</b></p>
+<!--<p style="color:#8e8e8e">October 2026: I'm planning on attending COLM 2026 in San Francisco</p> 
+<p><b>^Future</b></p>-->
+<p>Nov 2026: Talk at the UBC <a href="https://languagesciences.ubc.ca/" target="_blank">Language Sciences Institute</a></p>
 <p>August 2026: Lecture at the 2026 <a href="https://www.analytical-connectionism.net//school/2026/" target="_blank">School on Analytical Connectionism</a>, "Understanding and assessing abstract generalization in continuous representation models:</p> 
 <p>June 2026: Invited talk at the Canadian Applied and Industrial Mathematics Society Annual Meeting (CAIMS 2026)</p>
 <p>May 2026: Invited talk at the <a href="https://flareworkshop.github.io/">FLARE Workshop</a>, "Syntax from data points: Understanding the learning and representation of structural abstraction in language models"</p>
@@ -98,8 +138,35 @@
 
             </div>
             </div>
+            <div class="col">
+                <h2 id="lab">Lab</h2>
+                <p>I'm very lucky to have started working with some wonderful students at UBC!
+                </p>
+                <div class="student-grid">
+
+                    <lab-student
+                        pic="pictures/student_headshots/leroy.jpg"
+                        name="Leroy Wang"
+                        degree="PhD"
+                        dept="Linguistics"
+                        ></lab-student>
+
+                    <lab-student
+                        pic="pictures/student_headshots/mallie.jpg"
+                        name="Mallie Alaeddini"
+                        degree="PhD"
+                        dept="Linguistics"
+                        ></lab-student>
+
+                </div>
+                <p></p><p></p>
+                <p><b>Past Students</b></p>
+                <p>Melvin Teo, Undergrad in Computer Science</p>
+                <p>Yuanao Wang, Masters in Data Sceince</p>
+            </div>
             <div class="col">    
                 <h2 id="papers">Papers</h2>
+                <!--
                 <h3>Some representative papers</h3>
                 <p>
                 <b> <a href="https://aclanthology.org/2023.findings-emnlp.563/", target="_blank">Injecting structural hints: Using language models to study inductive biases in language learning</a></b> - <b> Isabel Papadimitriou </b> and Dan Jurafsky, Findings of EMNLP 2023
@@ -116,6 +183,7 @@
 
 
                 <h3>All Papers</h3>
+                -->
                 <p>
                     <b> <a href="https://arxiv.org/abs/2606.26749" target="_blank">Structure Before Collapse: Transient semantic geometry in next-token prediction</a></b> - Yize Zhao, <b>Isabel Papadimitriou*</b>, and Christos Thramboulidis*, COLM 2026
                 </p>
@@ -179,57 +247,39 @@
                 Learning Music Helps You Read: Using transfer to study linguistic structure in language models </a> </b> - <b>Isabel Papadimitriou </b> and Dan Jurafsky, EMNLP 2020 (oral presentation) <a href="https://arxiv.org/abs/2004.14601" target="_blank">[pdf]</a> <a href="https://github.com/toizzy/tilt-transfer" target="_blank">[code]</a></p>
 
             </div>
-            <div class="col">
-                <h2 id="lab">Lab</h2>
-                <p>I'm very lucky to have started working with some wonderful students at UBC!
-                </p>
-                <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 10px;">
-                    <div style="display: flex; align-items: flex-start; gap: 12px; width: calc(33.33% - 14px); min-width: 200px;">
-                        <img src="pictures/student_headshots/sample_headshot.jpeg" alt="Student 1" style="width: 70px; height: 70px; object-fit: cover; flex-shrink: 0;">
-                        <div style="font-size: 0.9em; line-height: 1.5;">
-                            <div><b>Mali Alaeddini</b></div>
-                            <div>PhD</div>
-                            <div>Linguistics</div>
-                            <div>2025-</div>
-                        </div>
-                    </div>
-                    <!-- Student 2 -->
-                    <div style="display: flex; align-items: flex-start; gap: 12px; width: calc(33.33% - 14px); min-width: 200px;">
-                        <img src="pictures/student_headshots/sample_headshot.jpeg" alt="Student 2" style="width: 70px; height: 70px; object-fit: cover; flex-shrink: 0;">
-                        <div style="font-size: 0.9em; line-height: 1.5;">
-                            <div><b>Melvin Teo</b></div>
-                            <div>Undergraduate</div>
-                            <div>Computer Science</div>
-                            <div>2025-</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
             <div class="col">    
                 <h2 id="joininglab">Joining the Lab</h2>
                 <p>I'm looking for PhD and masters students to join the lab, through both Linguistics and CS! The <a href="https://nlp.cs.ubc.ca/people" target="_blank">UBC NLP Group</a> is growing, and we have many new faculty members and exciting research directions. We'd love to have you join! For working with me, are likely a good research match if your research interests are broadly in interpretability or computational cognitive linguistics. 
                 </p>
-                    
                 <p>I am generally looking for students who want to deeply understand how lanugage models work, who have a scientific interest in human language, and who have some experience working with machine learning. We are a very open-minded linguistics department, and a fun, interdisciplinary NLP group with research to suit many tastes. 
                 </p> 
-
-                <p>About my advising style: I want my students to pursue the projects that most interest them. I have projects that I want to do, and a taste in what I prefer, but mostly I want my students to follow their passion in research. I aim to be available rather than necessarily hands-on: if students want very hands-on advising I can be coding in the trenches with you, but mostly I want to support my students so that the PhD is a scientifically fulfilling time.
-                </p>
-                
-                <p> You can apply for a PhD in <a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/phd-linguistics", target="_blank">Linguistics</a> or <a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/phd-computer-science" target="_blank">CS</a>, or for a masters (<a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-linguistics" target="_blank">ling masters</a>, <a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-computer-science" target="_blank">CS masters</a>). You can also apply to both departments. There are different experience requirements for the programs, and also slightly more funding sources available to support students through Linguistics, I'm happy to advise on which one is a better fit.</p>
-
-                <p>I do not respond to clearly LLM-generated emails. In general, I tend to not reply to generic open-ended emails about joining the group, sorry. If you have a specific question about joining the lab or working together, please do feel free to email me! (It's great if you can include a short sentence about why you think our research interests match, but don't worry too much about crafting this)</p>
-
-                <p><b>Wondering whether you should apply to linguistics or CS?</b> For the linguistics PhD, you should feel relatively comfortable taking a graduate linguistics course (syntax/semantics/phonology) in your first year. This doesn't mean that you need to be an expert in those topics at all! But that you've had enough contact with linguistics for this to feel mostly plausible. For CS, you would be co-advised by me and someone whose primary appointment is in CS (though I can still be your primary advisor), so be sure to also think about who else from the <a href="https://nlp.cs.ubc.ca/people" target="_blank">UBC NLP Group</a> you might want to work with.</p>
-
-                <p><b>The masters programs</b> of both departments are funded research masters, and a great choice if you want a bit more research experience before applying to a PhD. You could also consider checking the <a href="https://www.cs.ubc.ca/students/grad/prospective-grads/grad-programs/phd-track-program">PhD-track masters box</a> in the CS masters application.</p>
                     
-                <p>You should write my name in on CS applications, though the drop-down list only has primary appointees. I'll only see your application if you write me in on the potential advisors field! </p>
-            </s>
+                <details class="moreinfo">
+                <summary>More info on joining the lab, applying through Linguistics vs CS, and contacting me</summary>
+
+                
+                    <p> You can apply for a PhD in <a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/phd-linguistics", target="_blank">Linguistics</a> or <a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/phd-computer-science" target="_blank">CS</a>, or for a masters (<a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-linguistics" target="_blank">ling masters</a>, <a href="https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-computer-science" target="_blank">CS masters</a>). You can also apply to both departments. There are different experience requirements for the programs, and also slightly more funding sources available to support students through Linguistics, I'm happy to advise on which one is a better fit.</p>
+
+                    <p><b>Wondering whether you should apply to linguistics or CS?</b> For the linguistics PhD, you should feel relatively comfortable taking a few graduate linguistics courses (syntax/semantics/phonology) in your first year. This doesn't mean that you need to be an expert in those topics, but that you've had enough contact with linguistics for this to feel plausible. For CS, you would be co-advised by me and someone whose primary appointment is in CS (though I can still be your primary advisor/ make the admissions decision), so be sure to also think about who else from the <a href="https://nlp.cs.ubc.ca/people" target="_blank">UBC NLP Group</a> you might be interested in working with.</p>
+
+                    <p><b>The masters programs</b> of both departments are funded research masters, and a great choice if you want a bit more research experience before applying to a PhD. You could also consider checking the <a href="https://www.cs.ubc.ca/students/grad/prospective-grads/grad-programs/phd-track-program">PhD-track masters box</a> in the CS masters application.</p>
+                    
+                    <p><b>You should write my name in on CS applications</b>, even though the drop-down list only has primary appointees. I'll only see your application if you write me in on the potential advisors field! </p>
+
+                    <p><b>About my advising style</b> I want my students to pursue the projects that most interest them. I have projects that I want to do, and a taste in what I prefer, but mostly I want my students to follow their passion in research. I aim to be available rather than necessarily hands-on: if students want very hands-on advising I can be coding in the trenches with you, but mostly I want to support my students so that the PhD is a scientifically fulfilling time.  </p>
+
+                    <p><b>I do not respond to clearly LLM-generated emails.</b> In general, I tend to not reply to generic open-ended emails about joining the group, sorry.</p> 
+                    <p>I know that it can be hard to know what programs it is worth paying the fee to apply to, and this is why people email. So if it is useful to have a general sense: I do not have too many spots to recruit students, and so I'll berecruiting from students that have a clear interest in the kinds of questions that I work on (interpretability and related questions on the cognitive science of language). If this is not your wheelhouse, but you kind of see how a connection <i>could</i> be there between what I do and what you're interested in, it's unlikely that we're the best advisor-advisee match, sorry about that!</p>
+                    <!--- If you have a specific question about joining the lab or working together, please do feel free to email me! (It's great if you can include a short sentence about why you think our research interests match, but don't worry too much about crafting this)</p><-->
+
+                </details>
             </div>
             <div class="col">    
                 <h2 id="teaching">Teaching</h2>
+                    <p><b>At UBC:</b></p>
+                    <p>COLX 561, <b>Computational Semantics I</b> (COLX classes are for the Computational Linguistics <a href="https://masterdatascience.ubc.ca/programs/computational-linguistics">masters degree</a>)</p>
+                    <p>COLX 563, <b>Computational Semantics II</b></p>
+                    <p>COLX 565, <b>Understanding Language Models</b></p>
                     <p><b>Pre-UBC:</b></p>
                     <p> I was the TA for CS324H, <b>History of Natural Language Processing</b>, taught by Dan Jurafsky and Chris Manning in Winter 2024 </p>
                     <p> I was a TA for CS224N, <b>Natural Language Processing with Deep Learning</b>, taught by Chris Manning in Winter 2023 </p>
@@ -251,6 +301,38 @@
     
     <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">The template is by Vasilios Mavroudis. Thanks!</a> 
     
+
+<!-- Defines the <lab-student> tag used in the Lab section above.
+     Usage:  <lab-student pic="..." name="..." degree="..." dept="..." years="..." link="..."></lab-student>
+     Every attribute is optional except name; `link` (a personal website) is left off by default. -->
+<script>
+class LabStudent extends HTMLElement {
+    connectedCallback() {
+        const attr = n => this.getAttribute(n) || "";
+        const esc = t => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+        const pic = attr("pic") || "pictures/student_headshots/sample_headshot.jpeg";
+        const name = attr("name");
+        const link = attr("link");
+        const heading = link
+            ? '<a href="' + esc(link) + '" target="_blank">' + esc(name) + "</a>"
+            : esc(name);
+
+        // Lines below the name: only the ones you actually filled in get rendered.
+        const lines = ["degree", "dept", "years"]
+            .map(attr)
+            .filter(v => v)
+            .map(v => "<div>" + esc(v) + "</div>")
+            .join("");
+
+        this.innerHTML =
+            '<img class="student-pic" src="' + esc(pic) + '" alt="' + esc(name) + '">' +
+            '<div class="student-info"><div><b>' + heading + "</b></div>" + lines + "</div>";
+    }
+}
+customElements.define("lab-student", LabStudent);
+</script>
+
 </body>
 
 </html>
