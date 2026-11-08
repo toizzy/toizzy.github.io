@@ -58,8 +58,17 @@
 
 
 <!-- Navigation -->
-    <nav class="navbar navbar-inverse style="margin-left: 100px;"">
+    <nav class="navbar navbar-inverse">
       <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" aria-controls="main-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="main-nav">
 		<ul class="nav navbar-nav">
               <li><a href="#">Home</a></li>
               <li><a href="#talks">Talks and News</a></li> 
@@ -67,8 +76,9 @@
               <li><a href="#papers">Papers</a></li>
               <li><a href="#joininglab">Joining the Lab</a></li>
               <li><a href="#teaching">Teaching</a></li> 
-              <li><a href="#otherthings">Other Things</a></li> 
+              <li><a href="#otherthings">Other Things</a></li>
 		</ul>
+        </div>
 	  </div>
 	</nav>
   <!-- Page Content -->
@@ -306,6 +316,11 @@
      Usage:  <lab-student pic="..." name="..." degree="..." dept="..." years="..." link="..."></lab-student>
      Every attribute is optional except name; `link` (a personal website) is left off by default. -->
 <script>
+// On small screens, close the hamburger menu after a link is tapped.
+$('#main-nav a').on('click', function () {
+    if ($('.navbar-toggle').is(':visible')) $('#main-nav').collapse('hide');
+});
+
 class LabStudent extends HTMLElement {
     connectedCallback() {
         const attr = n => this.getAttribute(n) || "";
